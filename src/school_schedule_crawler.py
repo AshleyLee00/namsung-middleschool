@@ -615,6 +615,87 @@ def generate_schedule_html(schedules, school_name, year, month):
                 font-size: 1.4rem !important;
             }
         }
+        /* 16:9 비율 모니터 최적화 (높이 제한, 너비 제한) */
+        @media (max-height: 800px) and (max-width: 1999px) {
+            .page-header {
+                padding: 10px 15px;
+                min-height: 50px;
+            }
+            .header-main-title {
+                font-size: 2.8rem;
+            }
+            .page-header .weather, 
+            .page-header .date-time,
+            .page-header .school-name {
+                font-size: 1.4rem;
+            }
+            .page-header .weather-icon {
+                width: 30px;
+                height: 30px;
+            }
+            .main-content {
+                margin: 10px auto;
+                padding: 15px 20px;
+                max-height: calc(100vh - 70px);
+            }
+            .calendar-section h2 {
+                font-size: 1.4rem;
+                margin-bottom: 8px;
+                margin-top: 4px;
+            }
+            .schedule-calendar {
+                display: none;
+            }
+            .table-calendar-wrapper {
+                display: block;
+            }
+            .table-calendar {
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+            }
+            .table-calendar td {
+                padding: 3px 2px;
+                height: 25px;
+            }
+            .table-calendar th {
+                padding: 4px 2px;
+                font-size: 1rem;
+            }
+            .calendar-num {
+                width: 1.4rem;
+                height: 1.4rem;
+                line-height: 1.4rem;
+                font-size: 0.9rem;
+            }
+            .event-list-section {
+                margin-top: 8px;
+            }
+            .event-list-table {
+                font-size: 1.2rem;
+            }
+            .event-list-table td {
+                padding: 4px 3px;
+            }
+            .event-list-table td:first-child {
+                font-size: 1rem;
+                width: 80px;
+            }
+            .event-list-table td:last-child {
+                font-size: 1.2rem;
+            }
+            /* 일정이 많을 때 글씨 크기 조정 */
+            .event-list-table.many-events {
+                font-size: 1rem !important;
+            }
+            .event-list-table.many-events td:first-child {
+                font-size: 0.9rem !important;
+                width: 60px;
+            }
+            .event-list-table.many-events td:last-child {
+                font-size: 1rem !important;
+            }
+        }
+
         @media (max-height: 600px) {
             .page-header {
                 padding: 10px 15px;

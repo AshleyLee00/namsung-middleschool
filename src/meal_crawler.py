@@ -284,8 +284,8 @@ def generate_meal_html(meals, school_name):
             }
         }
 
-        /* 화면 높이가 제한적일 때 자동 글씨 크기 조절 */
-        @media (max-height: 800px) {
+        /* 16:9 비율 모니터 최적화 (높이 제한, 너비 제한) */
+        @media (max-height: 800px) and (max-width: 1999px) {
             .page-header {
                 padding: 15px 25px;
                 gap: 15px;
@@ -316,6 +316,55 @@ def generate_meal_html(meals, school_name):
             }
             .meal-menu {
                 font-size: 1.5rem;
+                line-height: 1.2;
+            }
+            .meal-menu span {
+                margin-bottom: 4px;
+            }
+            .allergen {
+                font-size: 1.3rem;
+                margin-top: 6px;
+                padding-top: 6px;
+            }
+            .notice-text {
+                font-size: 1.3rem;
+                margin: 8px auto;
+                padding: 8px;
+            }
+        }
+
+        /* 32:9 비율 모니터 최적화 (높이 제한, 너비 확장) */
+        @media (max-height: 800px) and (min-width: 2000px) {
+            .page-header {
+                padding: 15px 25px;
+                gap: 15px;
+            }
+            .header-main-title {
+                font-size: 2.8rem;
+            }
+            .page-header .weather, 
+            .page-header .date-time,
+            .page-header .school-name {
+                font-size: 1.6rem;
+            }
+            .page-header .weather-icon {
+                width: 35px;
+                height: 35px;
+            }
+            .page-header .weather-temp {
+                font-size: 1.6rem;
+            }
+            .meal-container {
+                margin: 10px auto;
+                padding: 10px;
+                gap: 8px;
+            }
+            .meal-date {
+                font-size: 1.5rem;
+                padding: 8px;
+            }
+            .meal-menu {
+                font-size: 1.3rem;
                 line-height: 1.2;
             }
             .meal-menu span {
