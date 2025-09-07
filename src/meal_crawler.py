@@ -1067,12 +1067,22 @@ def main():
     SCHOOL_CODE = "8352158"  # 남성중학교
     SCHOOL_NAME = "남성중학교"
     
-    # 날짜 설정 (이번 주 월~금)
+    # 날짜 설정
     today = datetime.now()
+    current_weekday = today.weekday()  # 월요일=0, 일요일=6
     
-    # 이번 주 월요일 찾기 (월요일=0, 일요일=6)
-    days_since_monday = today.weekday()
-    monday = today - timedelta(days=days_since_monday)
+    # 토요일(5) 또는 일요일(6)이면 다음 주, 그 외에는 해당 주
+    if current_weekday >= 5:  # 토요일(5) 또는 일요일(6)
+        # 다음 주 월요일 찾기
+        days_until_next_monday = 7 - current_weekday  # 토요일이면 2일, 일요일이면 1일
+        monday = today + timedelta(days=days_until_next_monday)
+        print("주말이므로 다음 주 급식 정보를 가져옵니다.")
+    else:  # 월요일(0) ~ 금요일(4)
+        # 이번 주 월요일 찾기
+        days_since_monday = current_weekday
+        monday = today - timedelta(days=days_since_monday)
+        print("평일이므로 이번 주 급식 정보를 가져옵니다.")
+    
     friday = monday + timedelta(days=4)  # 월요일 + 4일 = 금요일
     
     # YYYYMMDD 형식으로 변환
